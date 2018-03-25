@@ -1,0 +1,32 @@
+1)Stop container
+docker stop {name}
+
+2)Remove conatiner
+docker rm {name}
+
+3)List conatiner 
+docker container ls
+
+4)View logs of conatiner
+docker logs {name}
+
+5)list all images
+docker images
+
+6)Run mysql image
+>docker run --name mysql-standalone -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=testdb -e MYSQL_USER=shubham -e MYSQL_PASSWORD=shubham -d mysql:5.6
+
+7)Build docker image
+docker build .{docker file is present in root folder of application so use DOT} -t spring-docker{custom name}
+
+8)run docker image(create conatiner) and link with mysql counatiner
+docker run -p 8080{exposed port of application}:8080{linked to exposed port of conatiner} --name {new-container-name} --link mysql-standalone:
+mysql -d {image-name}
+
+Docker file example
+FROM openjdk{image-name}:8{version}
+ADD target/spring-docker.jar{source of jar file(clean install to create jar)} spring-docker.jar{destination}
+EXPOSE 8080
+ENTRYPOINT ["java", "-jar", "spring-docker.jar"]{command to run jar file}
+
+shubhamgkale@gmail.com
