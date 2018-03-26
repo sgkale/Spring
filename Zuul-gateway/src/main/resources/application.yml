@@ -1,0 +1,44 @@
+# Spring Boot configuration
+spring:
+  application:
+    name: ZUULGATEWAY
+  profiles:
+    active: google
+# Spring Security configuration
+security:
+  basic:
+    enabled: false
+    
+  oauth2:
+    client:
+      clientId: 773892937251-rklmam8eacsiothqb1tp6i8tenfvtk8t.apps.googleusercontent.com
+      clientSecret: I52K7SGtZkG_vs6WhxDzdiql
+      accessTokenUri: https://www.googleapis.com/oauth2/v4/token
+      userAuthorizationUri: https://accounts.google.com/o/oauth2/v2/auth
+      clientAuthenticationScheme: form
+      redirect-uri: http://localhost:9000
+      scope:
+        - openid
+        - email
+        - profile
+    resource:
+      userInfoUri: https://www.googleapis.com/oauth2/v3/userinfo
+      preferTokenInfo: true
+
+server:
+ port: 9000
+ 
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+      
+zuul:
+  routes:
+    mainrequest:
+      service-id: MAINREQUESTSERVICE
+    accomodationrequest:
+      service-id: ACCOMODATIONSERVICE
+  host:
+    socket-timeout-millis: 90000      
+     

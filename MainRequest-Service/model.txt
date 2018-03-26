@@ -1,3 +1,6 @@
+http://localhost:9000/mainrequest/rest/mainrequest/add
+http://localhost:9000/mainrequest/rest/mainrequest/get/1689459360
+
 {
     "mainRequestBO": {
     "requestedBy":16294,
@@ -9,8 +12,18 @@
 	"requestType":"internal",
 	"projectCode":"1244",
 	"projectName":"iPlan",
-	"remark":"new",
-	"createdOn":"2017-03-25 11:11:11",
-	"modifiedOn":"2017-03-25 11:11:11"
+	"remark":"new"
+    },
+    "accomodationDetailsBO":{
+    	"checkIn":"2017-03-25 11:11:11",
+		"checkOut":"2017-03-25 11:11:11",
+		"country":"india",
+		"city":"pune",
+		"currency":"Rs",
+		"budget":"1234",
+		"category":"Luxury",
+		"businessPurpose":"Training",
+		"remarks":"new"
+    	
     }
 }
