@@ -13,9 +13,9 @@ public class AccomodationDetailsBO  {
 	private int id;
 	
 	private int requestId;
-
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
 	private Date checkIn;
-
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
 	private Date checkOut;
 
 	private String country;
