@@ -17,11 +17,11 @@ public class MainrequestServiceImpl implements MainrequestService{
 	private MainrequestServiceRepo repo;
 	
 	@Override
-	public Boolean addrequest(MainRequestDTO mainRequestDTO) {
+	public int addrequest(MainRequestDTO mainRequestDTO) {
 		MainRequestBO mainRequestBO=mainRequestDTO.getMainRequestBO();
 		mainRequestBO.setRequestId(Utils.GetRandom());
 		repo.save(mainRequestBO);
-		return true;		
+		return mainRequestBO.getRequestId();		
 	}
 
 	@Override

@@ -24,8 +24,10 @@ public class MainrequestControllers {
 		if(mainRequestDTO == null) {
 			return "invalid data";
 		}
-		if(mainrequestService.addrequest(mainRequestDTO)) {
-			return "success";
+		
+		Integer requestId=mainrequestService.addrequest(mainRequestDTO);
+		if (requestId!=null) {
+			return "sucess : "+requestId;
 		}
 		
 		return "fail";

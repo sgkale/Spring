@@ -7,7 +7,7 @@ import com.capco.entities.MainRequestDTO;
 
 public interface MainrequestService {
 
-	public Boolean addrequest(MainRequestDTO mainRequestDTO);
+	public int addrequest(MainRequestDTO mainRequestDTO);
 
 	MainRequestDTO GetMainRequest(int requestId);
 

@@ -1,0 +1,2 @@
+docker build . -t eureka-server
+docker run -p 8761:8761 --name eureka-server -d eureka-server
