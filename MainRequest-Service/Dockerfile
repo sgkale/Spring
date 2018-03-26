@@ -1,4 +1,4 @@
 FROM openjdk:8
-ADD target/spring-docker.jar spring-docker.jar
-EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "spring-docker.jar"]
+ADD target/MainRequest-Service.jar MainRequest-Service.jar
+EXPOSE 8000
+ENTRYPOINT ["java", "-jar", "MainRequest-Service.jar"]
