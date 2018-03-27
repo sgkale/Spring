@@ -31,8 +31,10 @@ public class CabDetailsBO {
 	
 	private String dropCity;
 	
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
 	private Date fromDateAndTime;
 	
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
 	private Date toDate;
 	
 	private String carType;

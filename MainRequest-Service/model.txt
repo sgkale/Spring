@@ -25,5 +25,19 @@ http://localhost:9000/mainrequest/rest/mainrequest/get/1689459360
 		"businessPurpose":"Training",
 		"remarks":"new"
     	
+    },
+    "cabDetailsBO":{
+    "taxiTravelType":"Outstation",
+	"pickupCity":"pune",
+	"country":"india",
+	"pickUpLocation":"kharadi",
+	"dropLocation":"pimpri",
+	"dropCity":"nashik",
+	"fromDateAndTime":"2017-03-03 11:11:11",
+	"toDate":"2017-11-12",
+	"carType":"Sedan",
+	"remarks":"new",
+	"businessPurpose":"Training",
+	"isActive":true
     }
 }
