@@ -20,8 +20,10 @@ public class ForexDetailsBO {
 	
 	private int requestId;
 
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
 	private Date forexToDate;
 
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
 	private Date forexFromDate;
 
 	private String forexCurrency;

@@ -1,6 +1,7 @@
 package com.capco.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,6 +21,7 @@ public class MainrequestControllers {
 	
 	@PostMapping
 	@RequestMapping(value="/add")
+	@PreAuthorize("hasRole('ROLE_USER')")
 	public String AddMainRequest(@RequestBody MainRequestDTO mainRequestDTO) {
 		if(mainRequestDTO == null) {
 			return "invalid data";
@@ -35,6 +37,7 @@ public class MainrequestControllers {
 	
 	@GetMapping
 	@RequestMapping(value="/get/{requestId}")
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	public MainRequestDTO GetMainRequest(@PathVariable("requestId") Integer requestId) {
 		if(requestId == null) {
 			return null;

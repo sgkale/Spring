@@ -8,8 +8,12 @@ import org.springframework.stereotype.Service;
 
 import com.capco.clients.AccomodationClient;
 import com.capco.clients.CabClient;
+import com.capco.clients.FlightClient;
+import com.capco.clients.ForexClient;
 import com.capco.entities.AccomodationDetailsBO;
 import com.capco.entities.CabDetailsBO;
+import com.capco.entities.FlightDetailsBO;
+import com.capco.entities.ForexDetailsBO;
 import com.capco.entities.MainRequestBO;
 import com.capco.entities.MainRequestDTO;
 import com.capco.repository.MainrequestServiceRepo;
@@ -28,6 +32,12 @@ public class MainrequestServiceImpl implements MainrequestService{
 	@Autowired
 	private CabClient cabclient;
 	
+	@Autowired
+	private ForexClient forexClient;
+	
+	@Autowired
+	private FlightClient flightClient;
+	
 	@Override
 	public int addrequest(MainRequestDTO mainRequestDTO) {
 		MainRequestBO mainRequestBO=mainRequestDTO.getMainRequestBO();
@@ -45,7 +55,16 @@ public class MainrequestServiceImpl implements MainrequestService{
 			cabDetailsBO.setRequestId(mainRequestBO.getRequestId());
 			cabclient.AddCabRequest(cabDetailsBO);
 		}
-		
+		if(mainRequestDTO.getForexDetailsBO()!=null) {
+			ForexDetailsBO forexDetailsBO=mainRequestDTO.getForexDetailsBO();
+			forexDetailsBO.setRequestId(mainRequestBO.getRequestId());
+			forexClient.addRequest(forexDetailsBO);
+		}
+		if(mainRequestDTO.getFlightDetailsBO()!=null) {
+			FlightDetailsBO flightDetailsBO=mainRequestDTO.getFlightDetailsBO();
+			flightDetailsBO.setRequestId(mainRequestBO.getRequestId());
+			flightClient.addRequest(flightDetailsBO);
+		}
 		return mainRequestBO.getRequestId();		
 	}
 
@@ -56,6 +75,8 @@ public class MainrequestServiceImpl implements MainrequestService{
 		mainRequestDTO.setMainRequestBO(mainRequestBO);
 		mainRequestDTO.setAccomodationDetailsBO(accomodationClient.GetAccomodationRequest(requestId));
 		mainRequestDTO.setCabDetailsBO(cabclient.GetCabRequest(requestId));
+		mainRequestDTO.setForexDetailsBO(forexClient.getRequest(requestId));
+		mainRequestDTO.setFlightDetailsBO(flightClient.getRequest(requestId));
 		return mainRequestDTO;
 	}
 }

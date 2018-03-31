@@ -31,8 +31,10 @@ public class FlightDetailsBO {
 
 	private String passportNumber;
 
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
 	private Date passportIssueDate;
 
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
 	private Date passportExpiryDate;
 
 	private String nationality;
@@ -43,6 +45,7 @@ public class FlightDetailsBO {
 
 	private Boolean isValidVisa;
 
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
 	private Date returnDate;
 	
 	private String returnTime;
@@ -51,6 +54,7 @@ public class FlightDetailsBO {
 
 	private String departureLocation;
 
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
 	private Date departureDate;
 
 	private String departureTime;
@@ -61,6 +65,7 @@ public class FlightDetailsBO {
 
 	private String givenName;
 
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
 	private Date dateOfBirth;
 	
 	private String originCountry;
