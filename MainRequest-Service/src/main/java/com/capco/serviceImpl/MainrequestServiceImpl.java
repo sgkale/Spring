@@ -79,4 +79,18 @@ public class MainrequestServiceImpl implements MainrequestService{
 		mainRequestDTO.setFlightDetailsBO(flightClient.getRequest(requestId));
 		return mainRequestDTO;
 	}
+
+	@Override
+	public String changeRequestStatus(int requestid, String status) {
+		System.out.println("inside mainreequest change service" + requestid + status);
+		try {
+			MainRequestBO mainRequestBO=repo.findByRequestId(requestid);
+			mainRequestBO.setCurrentStatus(status);
+			repo.save(mainRequestBO);
+			System.out.println("updated");
+		} catch (Exception e) {
+			return "failed";
+		}
+		return "success";
+	}
 }

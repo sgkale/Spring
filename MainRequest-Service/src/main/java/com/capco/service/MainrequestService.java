@@ -11,4 +11,6 @@ public interface MainrequestService {
 
 	MainRequestDTO GetMainRequest(int requestId);
 
+	public String changeRequestStatus(int requestid, String status);
+
 }
