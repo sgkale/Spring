@@ -89,7 +89,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
-		<finalName>MainRequest-Service</finalName>
+		<finalName>mainRequest-service</finalName>
 	</build>
 
 	<repositories>
